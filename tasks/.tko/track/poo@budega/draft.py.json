@@ -1,0 +1,14 @@
+{
+    "patches": [
+        {
+            "label": "2025-11-18_13-37-11",
+            "content": "@@ -50,25 +50,24 @@\n       self._\n-_\n nome = nome%0A\n@@ -181,25 +181,24 @@\n rn f%22%7Bself._\n-_\n nome%7D%22%0A    %0A\n@@ -226,16 +226,14 @@\n def \n-_\n _init_\n-_\n (sel\n@@ -272,41 +272,10 @@\n aixa\n-: list%5Bcliente %7C None%5D = %5BNone%5D *\n+ =\n  qtd\n@@ -308,724 +308,43 @@\n a = \n-qtdcaixa%0A        self.fila: list%5Bcliente %7C None%5D = %5B%5D%0A%0A    def __str__(self) -%3E str:%0A        caixas: list%5Bstr%5D = list(map(lambda cliente: '-----' if cliente is None else cliente.getnome(), self.caixa))%0A        strCaixasFinal: str = %22%5B%22 +%22, %22.join(caixas) + %22%5D%22%0A        fila: list%5Bstr%5D = list(map(lambda p: %22%22 if p is None else p.getnome(), self.fila))%0A        strFilaFinal: str = %22%5B%22 +%22, %22.join(fila) + %22%5D%22%0A        return f%22Caixas: %7BstrCaixasFinal%7D%5CnEspera: %7BstrFilaFinal%7D%22%0A    %0A    def chegar (self, nome: cliente %7C None) -%3E None:%0A        self.fila.append(nome)%0A        return%0A    %0A    def chamar(self, number: int):%0A        if not self.fila:%0A            print(%22fail: sem cliente%22)%0A            return%0A        %0A    %0A\n+%5BNone%5D * qtdcaixaself.fila = %5BNone%5D\n %0A   \n@@ -349,13 +349,16 @@\n        %0A\n-%0A%0A%0A%0A%0A\n+        \n",
+            "lines": "16"
+        },
+        {
+            "label": "2025-11-18_14-38-03",
+            "content": "class cliente:\n    def _init_(self, nome:str):\n        self.__nome = nome\n    \n    def getnome(self) -> str:\n        return self.__nome\n    \n    def _str_(self) -> str:\n        return f\"{self.__nome}\"\n    \nclass Mercantil:\n    def __init__(self, qtdcaixa:int):\n        self.caixa: list[cliente | None] = [None] * qtdcaixa\n        self.qtdcaixa = qtdcaixa\n        self.fila: list[cliente | None] = []\n\n    def __str__(self) -> str:\n        caixas: list[str] = list(map(lambda cliente: '-----' if cliente is None else cliente.getnome(), self.caixa))\n        strCaixasFinal: str = \"[\" +\", \".join(caixas) + \"]\"\n        fila: list[str] = list(map(lambda p: \"\" if p is None else p.getnome(), self.fila))\n        strFilaFinal: str = \"[\" +\", \".join(fila) + \"]\"\n        return f\"Caixas: {strCaixasFinal}\\nEspera: {strFilaFinal}\"\n    \n    def chegar (self, nome: cliente | None) -> None:\n        self.fila.append(nome)\n        return\n    \n    def chamar(self, number: int):\n        if not self.fila:\n            print(\"fail: sem cliente\")\n            return\n        \n    \n\n        \n\n\n\n\n\n",
+            "lines": "40"
+        }
+    ]
+}
